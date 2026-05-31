@@ -1,4 +1,5 @@
 import tkinter as tk 
+from validation import validate_name
 
 class QEQuizApp:
  
@@ -6,6 +7,7 @@ class QEQuizApp:
    self.root = tk.Tk()
    self.root.title("Quality Engineering Quiz")
    self.root.geometry("800x600")
+   self.name = None
 
   def home_page(self):
    title = tk.Label (
@@ -29,18 +31,33 @@ class QEQuizApp:
    )
    name_indicator.pack()
 
-   self.name_input = tk.Entry(self.root)
+   self.name_input = tk.Entry(self.root, width="50")
    self.name_input.pack(pady=10)
 
    submit_button = tk.Button(
      self.root,
      text="Submit Name",
      font=("Arial", 18),
-     command=self.submit_name
+      command=self.submit_name
    )
+   submit_button.pack()
+
+   self.error_message = tk.Label(
+     self.root,
+     text="",
+     font=("Arial", 15),
+     fg = "red"
+    )
+   self.error_message.pack()
+
+   self.name_isvalid = tk.Label(
+     self.root,
+     text="",
+     font=("Arial", 15),
+     fg = "green"
+   )
+   self.name_isvalid.pack()
   
-  def submit_name(self):
-   print("name submitted")
 
    start_button = tk.Button(
     self.root,
@@ -50,8 +67,21 @@ class QEQuizApp:
    )
    start_button.pack(pady=10)
 
+  def submit_name(self):
+   name_entered = self.name_input.get()
+   validation_outcome = validate_name(name_entered)
+   if validation_outcome == True:
+     self.name = name_entered
+     self.name_isvalid.config(text="Name Successfully submitted!")
+     self.error_message.config(text="") 
+   else:
+     self.error_message.config(text=validation_outcome)
+
   def start_quiz(self):
-    pass
+    if self.name == None:
+      self.error_message.config(text="Please Enter your name first")
+      return 
+
 
 
 if __name__ == "__main__":
