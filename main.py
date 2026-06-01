@@ -1,5 +1,6 @@
 import tkinter as tk 
 from validation import validate_name
+import csv
 
 class QEQuizApp:
  
@@ -10,19 +11,19 @@ class QEQuizApp:
    self.name = None
 
   def home_page(self):
-   title = tk.Label (
+   self.title = tk.Label (
        self.root,
        text ="Quality Engineering Quiz",
        font=("Arial", 40, "bold")
    )
-   title.pack(pady=20)
+   self.title.pack(pady=20)
 
-   sub_title = tk.Label (
+   self.sub_title = tk.Label (
      self.root,
        text ="Junior Automation Test Engineer",
        font=("Arial", 26, "bold")
    )
-   sub_title.pack()
+   self.sub_title.pack()
 
    name_indicator = tk.Label(
     self.root,
@@ -73,14 +74,35 @@ class QEQuizApp:
    if validation_outcome == True:
      self.name = name_entered
      self.name_isvalid.config(text="Name Successfully submitted!")
-     self.error_message.config(text="") 
+     self.error_message.config(text="")
+     #with open("quiz_data.csv", "a", newline="") as file:
+      # writer = csv.writer(file)
+       #writer.writerow(["Name", self.name]) 
    else:
      self.error_message.config(text=validation_outcome)
 
+
+  def quiz_questions(self):
+    self.title.pack(pady=20)
+    self.sub_title.pack()
+
+    self.section_one = tk.Label(
+      self.root,
+      text="Section 1: Testing Fundamentals"
+    )
+
+    
+    return
+  
   def start_quiz(self):
     if self.name == None:
       self.error_message.config(text="Please Enter your name first")
       return 
+    for widget in self.root.winfo_children():
+      widget.destroy
+
+      
+
 
 
 

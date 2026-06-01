@@ -1,4 +1,7 @@
 def validate_name(name):
+
+    name = name.strip()
+
     if len(name) == 0:
      return "Name Field cannot be left empty"
     
@@ -6,7 +9,7 @@ def validate_name(name):
        return "Name must be between 2 and 30 characters"
     
     for character in name:
-       if not character.isalpha():
+       if (not character.isalpha() or character == " "):
           return "Name must only contain letters"
     
     return True
