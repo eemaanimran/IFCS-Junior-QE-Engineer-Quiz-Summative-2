@@ -25,3 +25,13 @@ section_one = [
         "answer": "User Acceptance Testing"
     }
 ]
+section_two = [
+    {
+        "type":"manual_answer",
+        "question":"Describe when API Testing should be used"
+    },
+    {
+        "type":"manual_answer",
+        "question":"What is a locator and how is it used for automation testing?"
+    }
+]
