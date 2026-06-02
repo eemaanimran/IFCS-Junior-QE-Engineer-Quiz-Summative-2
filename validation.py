@@ -13,3 +13,15 @@ def validate_name(name):
           return "Name must only contain letters"
     
     return True
+
+def validate_answer(answer):
+
+    answer = answer.strip()
+
+    if len(answer) == 0:
+     return "Answer Field cannot be left empty"
+    
+    return True
+
+def validate_multiple_choice_answer(answser):
+   return True

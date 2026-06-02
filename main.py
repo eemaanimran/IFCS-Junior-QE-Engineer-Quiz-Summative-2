@@ -1,6 +1,7 @@
 import tkinter as tk 
-from validation import validate_name
+from validation import validate_name, validate_answer
 import csv
+from questions import section_one, section_two
 
 class QEQuizApp:
  
@@ -9,6 +10,8 @@ class QEQuizApp:
    self.root.title("Quality Engineering Quiz")
    self.root.geometry("800x600")
    self.name = None
+   self.quiz_frame = tk.Frame(self.root)
+   self.question_index = 0
 
   def home_page(self):
    self.title = tk.Label (
@@ -25,23 +28,23 @@ class QEQuizApp:
    )
    self.sub_title.pack()
 
-   name_indicator = tk.Label(
+   self.name_indicator = tk.Label(
     self.root,
     text="Enter your name:",
     font=("Arial", 20)
    )
-   name_indicator.pack()
+   self.name_indicator.pack()
 
    self.name_input = tk.Entry(self.root, width="50")
    self.name_input.pack(pady=10)
 
-   submit_button = tk.Button(
+   self.submit_button = tk.Button(
      self.root,
      text="Submit Name",
      font=("Arial", 18),
       command=self.submit_name
    )
-   submit_button.pack()
+   self.submit_button.pack()
 
    self.error_message = tk.Label(
      self.root,
@@ -60,13 +63,13 @@ class QEQuizApp:
    self.name_isvalid.pack()
   
 
-   start_button = tk.Button(
+   self.start_button = tk.Button(
     self.root,
     text="Start Quiz!",
     font=("Arial", 20),
     command=self.start_quiz
    )
-   start_button.pack(pady=10)
+   self.start_button.pack(pady=10)
 
   def submit_name(self):
    name_entered = self.name_input.get()
@@ -88,18 +91,64 @@ class QEQuizApp:
 
     self.section_one = tk.Label(
       self.root,
-      text="Section 1: Testing Fundamentals"
+      text="Section 1: Testing Fundamentals",
+      font=("Arial", 25) 
     )
+    self.section_one.pack()
+    question = section_one[self.question_index]
 
+    self.question_message = tk.Label(
+      self.quiz_frame,
+      text = question["question"],
+      font=("Arial", 22) 
+    )
     
-    return
+
+    self.question_message.pack(pady=20)
+    if question["type"] == "manual_answer":
+      self.user_answer = tk.Entry (
+        self.quiz_frame,
+        width=50
+      )
+      self.user_answer.pack(pady=20)
+      self.submit_button = tk.Button(
+        self.quiz_frame,
+        text="Next Question",
+        command=self.next_question
+      )
+
+      self.submit_button.pack()
+    elif question["type"] == "multiple_choice":
+      self.select_option = tk.StringVar()
+      self.selected_option.set("Select an Answer")
+      answer_selection = tk.OptionMenu(
+        self.quiz_frame,
+        self.selected_option,
+        *question["options"]
+      )
+      answer_selection.config(font=("Arial", 14))
+      answer_selection.pack(pady=20)
+      self.submit_button.pack()
+
   
   def start_quiz(self):
     if self.name == None:
       self.error_message.config(text="Please Enter your name first")
       return 
     for widget in self.root.winfo_children():
-      widget.destroy
+      self.name_input.destroy()
+      self.error_message.destroy()
+      self.name_isvalid.destroy()
+      self.name_indicator.destroy()
+      self.submit_button.destroy()
+      self.start_button.destroy()
+
+    self.quiz_frame = tk.Frame(self.root)  
+    self.quiz_frame.pack()
+    self.quiz_questions()
+
+
+
 
       
 
