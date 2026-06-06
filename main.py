@@ -10,31 +10,35 @@ class QEQuizApp:
    self.root.title("Quality Engineering Quiz")
    self.root.geometry("800x600")
    self.name = None
-   self.quiz_frame = tk.Frame(self.root)
+   self.quiz_frame = tk.Frame(self.root, bg="#8ac5d4")
+   self.home_frame = tk.Frame(self.root, bg="#8ac5d4")
    self.question_index = 0
    self.current_section = section_one
+   self.root.configure(bg="#8ac5d4")
 
   def home_page(self):
    self.title = tk.Label (
        self.root,
        text ="Quality Engineering Quiz",
-       font=("Arial", 40, "bold")
+       font=("Arial", 40, "bold"),
+       bg="#8ac5d4"
    )
    self.title.pack(pady=20)
 
    self.sub_title = tk.Label (
      self.root,
        text ="Junior Automation Test Engineer",
-       font=("Arial", 26, "bold")
+       font=("Arial", 26, "bold"),
+       bg="#8ac5d4"
    )
    self.sub_title.pack()
-   self.home_frame = tk.Frame(self.root)
    self.home_frame.pack()
 
    self.name_indicator = tk.Label(
     self.home_frame,
     text="Enter your name:",
-    font=("Arial", 20)
+    font=("Arial", 20),
+    bg="#8ac5d4"
    )
    self.name_indicator.pack()
 
@@ -53,7 +57,8 @@ class QEQuizApp:
      self.home_frame,
      text="",
      font=("Arial", 15),
-     fg = "red"
+     fg = "red",
+     bg="#8ac5d4"
     )
    self.error_message.pack()
 
@@ -61,7 +66,8 @@ class QEQuizApp:
      self.home_frame,
      text="",
      font=("Arial", 15),
-     fg = "green"
+     fg = "green",
+     bg="#8ac5d4"
    )
    self.name_isvalid.pack()
   
@@ -81,20 +87,23 @@ class QEQuizApp:
     complete_message = tk.Label(
       self.quiz_frame,
       text=f"Thank you for completing the quiz {self.name}!",
-      font=("Arial", 28)
+      font=("Arial", 28),
+      bg="#8ac5d4"
     )
     complete_message.pack(pady=40)
     answers_recorded_message = tk.Label(
       self.quiz_frame,
       text="Your answers have been recorded and will be reviewed by someone from our team shortly!",
-      font=("Arial", 28)
+      font=("Arial", 28),
+      bg="#8ac5d4"
     )
     answers_recorded_message.pack(pady=10)
 
     contact_message = tk.Label(
       self.quiz_frame,
       text="We will be in touch soon regarding your results and feedback!",
-      font=("Arial", 28)
+      font=("Arial", 28),
+      bg="#8ac5d4"
     )
     contact_message.pack(pady=10)
 
@@ -117,7 +126,8 @@ class QEQuizApp:
     self.quiz_frame,
     text="",
     fg="red",
-    font=("Arial", 14)
+    font=("Arial", 14),
+    bg="#8ac5d4"
     )
     if question["type"] == "manual_answer":
       answer = self.user_answer.get()
@@ -146,7 +156,8 @@ class QEQuizApp:
         self.section_label = tk.Label(
         self.quiz_frame,
         text=section_title,
-        font=("Arial", 25) 
+        font=("Arial", 25),
+        bg="#8ac5d4"
         )
         self.section_label.pack(pady=10)
         self.quiz_questions()
@@ -159,7 +170,8 @@ class QEQuizApp:
           self.section_label = tk.Label(
           self.quiz_frame,
           text="Section 2: Automation Knowledge",
-          font=("Arial", 25) 
+          font=("Arial", 25),
+          bg="#8ac5d4"
          )
           self.section_label.pack(pady=10)
           self.quiz_questions() 
@@ -177,7 +189,8 @@ class QEQuizApp:
     self.question_message = tk.Label(
       self.quiz_frame,
       text = question["question"],
-      font=("Arial", 22) 
+      font=("Arial", 22),
+      bg="#8ac5d4" 
     )
     
     self.question_message.pack(pady=20)
@@ -219,14 +232,14 @@ class QEQuizApp:
       return
     
     self.home_frame.destroy()
-
-    self.quiz_frame = tk.Frame(self.root)  
+ 
     self.quiz_frame.pack()
 
     self.section_label = tk.Label(
     self.quiz_frame,
     text="Section 1: Testing Fundamentals",
-    font=("Arial", 25) 
+    font=("Arial", 25),
+    bg="#8ac5d4" 
     )
     self.section_label.pack(pady=10)
     self.quiz_questions()
