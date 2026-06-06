@@ -23,5 +23,9 @@ def validate_answer(answer):
     
     return True
 
-def validate_multiple_choice_answer(answser):
+def validate_multiple_choice_answer(answer):
+
+   if answer == "Select an Answer":
+      return "Please Select an Answer"
+   
    return True
