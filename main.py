@@ -75,7 +75,30 @@ class QEQuizApp:
    self.start_button.pack(pady=10)
 
   def quiz_complete(self):
-    print("quiz done") 
+    for widget in self.quiz_frame.winfo_children():
+      widget.destroy()
+
+    complete_message = tk.Label(
+      self.quiz_frame,
+      text=f"Thank you for completing the quiz {self.name}!",
+      font=("Arial", 28)
+    )
+    complete_message.pack(pady=40)
+    answers_recorded_message = tk.Label(
+      self.quiz_frame,
+      text="Your answers have been recorded and will be reviewed by someone from our team shortly!",
+      font=("Arial", 28)
+    )
+    answers_recorded_message.pack(pady=10)
+
+    contact_message = tk.Label(
+      self.quiz_frame,
+      text="We will be in touch soon regarding your results and feedback!",
+      font=("Arial", 28)
+    )
+    contact_message.pack(pady=10)
+
+
 
   def submit_name(self):
    name_entered = self.name_input.get()
@@ -192,7 +215,7 @@ class QEQuizApp:
   
   def start_quiz(self):
     if self.name == None:
-      self.error_message.config(text="Please Enter your name first")
+      self.error_message.config(text="Please submit your name first")
       return
     
     self.home_frame.destroy()
