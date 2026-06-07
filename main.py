@@ -143,6 +143,13 @@ class QEQuizApp:
           self.error_message.config(text=validation)
           self.error_message.pack()
           return
+        try: 
+          with open("quiz_results.csv", "a", newline="") as file:
+            writer = csv.writer(file)
+            writer.writerow([self.name, question["question"], answer])
+        except Exception as error:
+          print(error)
+
 
     self.question_index += 1
       
