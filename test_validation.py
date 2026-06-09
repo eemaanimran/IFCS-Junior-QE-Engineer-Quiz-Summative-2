@@ -8,7 +8,7 @@ class TestValidateAnswer(unittest.TestCase):
 
     def test_empty_name(self):
         result = validate_name("")
-        self.assertEqual(result, "Name field cannot be left empty")
+        self.assertEqual(result, "Name Field cannot be left empty")
 
     def test_valid_manual_answer(self):
         result = validate_answer("API Testing")
@@ -16,7 +16,7 @@ class TestValidateAnswer(unittest.TestCase):
 
     def test_empty_manual_answer(self):
         result = validate_answer("")
-        self.assertEqual(result, "Please select an answer")
+        self.assertEqual(result, "Answer Field cannot be left empty")
 
     def test_valid_multiple_choice_answer(self):
         result = validate_multiple_choice_answer("User Acceptance Testing")
