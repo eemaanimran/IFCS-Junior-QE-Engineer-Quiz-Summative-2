@@ -12,3 +12,8 @@ class TestValidateAnswer(unittest.TestCase):
 
     def test_valid_manual_answer(self):
         result = validate_answer("")
+        self.assertEqual(result, "Please select an answer")
+
+    def test_valid_manual_answer(self):
+        result = validate_multiple_choice_answer("")
+        self.assertEqual(result, "")
