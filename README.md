@@ -10,6 +10,20 @@ This proposed Minimum Viable Product (MVP) has been designed to follow a profess
 Overall, this quiz application supports IBM by improving visibility into candidate knowledge, allowing for more informed decisions during recruitment and onboarding of Automation Testers. 
 
 ## Design Section 
+# GUI Design
+The GUI for this proposed quiz was initially designed using Figma before starting development. This designed prototype was done to visualise the user journey from start till end, and its navigation flow. This prototype has minimal graphical elements to soley focus on user navigation, and maintain simplicity as this quiz will be used in a professional environment. The main planned user journey consists of the home page, quiz questions, and the finishing page. This final prototype is shown in the screenshot below.  
+
+<img width="1112" height="656" alt="image" src="https://github.com/user-attachments/assets/110013c1-a360-4f23-846c-2806c844aaf5" />
+
+# Functional and Non-functional requirements
+Below are tables listing each type of requirements for this Quiz App.
+
+| ID  | Requirement |
+|-----|-------------|
+| FR1 |  |
+| FR2 |  |
+| FR3 | ... |
+
 
 ## Development Section 
 
