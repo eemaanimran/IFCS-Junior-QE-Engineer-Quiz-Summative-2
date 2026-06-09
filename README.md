@@ -33,6 +33,11 @@ Below are tables listing each type of requirements for this Quiz App.
 | NFR4 |  |
 
 ### Tech Stack outline
+Below are the features that were used to create this Quiz Application.
+- [Python](https://www.python.org/) — Main programming language
+- [Tkinter](https://docs.python.org/3/library/tkinter.html) — Python library used to create the desktop GUI
+- [csv](https://docs.python.org/3/library/csv.html) — Used for CSV data storage, and storing quiz responses
+- [unittest](https://docs.python.org/3/library/unittest.html) — Used for automated unit testing for validation functions
 
 ## Development Section 
 
