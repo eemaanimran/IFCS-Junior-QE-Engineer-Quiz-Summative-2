@@ -1,7 +1,7 @@
 # IFCS-Junior-QA-Engineer-Quiz-Summative-2
 
 ## Introduction 
-As a test Automation Engineer at IBM, I work within a rigorous quality engineering environment, where efficient knowledge about testing practices, and high quality testing processes are vital for producing a successful UI testing outcomes from different environments. New joiners in the Quality Engineering practice should be able to recognise and apply these requirements where necessary to make meaningful contributions whilst adhereing to IBM's value of innovation and trust. However, onboarding of interns, apprentices, and regular employees can be challenging when it comes to understanding each newcomers current knowledge of Quality Engineering. Relying solely on induction sessions and early discussions may not be a consistent approach to understand a candidates knowledge during onboarding.
+As a test Automation Engineer at IBM, I work within a rigorous quality engineering environment, where efficient knowledge about testing practices, and high quality testing processes are vital for producing a successful UI testing outcomes from different environments. New joiners in the Quality Engineering practice should be able to recognise and apply these requirements where necessary to make meaningful contributions whilst adhering  to IBM's value of innovation and trust. However, onboarding of interns, apprentices, and regular employees can be challenging when it comes to understanding each newcomers current knowledge of Quality Engineering. Relying solely on induction sessions and early discussions may not be a consistent approach to understand a candidates knowledge during onboarding.
 
 To understand each candidates initial understanding and knowledge of Quality Engineering, this Junior Quality Engineer Quiz provides a structured and consistent approach to assess foundational knowledge about Quality Engineering, with a focus towards newcomers of Automation Testing. This desktop application has been developed using Python and Tkinter, allowing recruiters to test candidates through multiple questions about Automation Testing and key testing concepts, which can be used during an application process or after onboarding to check understanding. 
 
@@ -49,26 +49,58 @@ The application was designed using a modular, object‑oriented approach to impr
 #### main.py
 <img width="961" height="596" alt="image" src="https://github.com/user-attachments/assets/4ba7afff-b056-435f-9b6b-cf19b1fde2df" />
 
-The main.py file contains the primary application logic and GUI functionality using Tkinter. It's main class QEQuizApp contains the overall quiz navigation, including user interaction, switching questions, and transiting to different sections. This class also contains the creation of Tkinter widgets, including labels, buttons, frames, and drop down menus.
+The ```main.py``` module contains the primary application logic and GUI functionality using Tkinter. It's main class ```QEQuizApp``` contains the overall quiz navigation, including user interaction, switching questions, and transiting to different sections. This class also contains the creation of Tkinter widgets, including labels, buttons, frames, and drop down menus.
 
-Object-oriented programming principles were also applied in this class including attributes like quiz frames (e.g, self.home_frame) and Tkinter widgets (e.g., self.title). This class also contains various methods, which will be discussed in more detail below. 
+Object-oriented programming principles were also applied in this class including attributes like quiz frames (e.g, ```self.home_frame```) and Tkinter widgets (e.g., ```self.title```). This class also contains various methods, which will be discussed in more detail below. 
 
 #### validation.py
 <img width="1041" height="584" alt="image" src="https://github.com/user-attachments/assets/a6ac8c49-e5d6-45aa-816d-810c35e9f4ac" />
 
-The validation.py file contains a set of validation functions for checking user input throughout the quiz. These functions ensure that all required fields are correctly completed before allowing the user to proceed to the next question or frame. Separating this logic from main.py not only improves modularity but also allows the functions to be tested independently through automated unit tests. The file contains three key validation functions. 
+The validation.py file contains a set of validation functions for checking user input throughout the quiz. These functions ensure that all required fields are correctly completed before allowing the user to proceed to the next question or frame. Separating this logic from the main module not only improves modularity but also allows the functions to be tested independently through automated unit tests. The file contains three key validation functions. 
 
-<img width="747" height="432" alt="image" src="https://github.com/user-attachments/assets/86ed5bc6-c203-4def-b580-4bd7ede6d827" />
+```
+def validate_name(name):
 
-The validate_name function checks that the user's name contains only alphabetic characters and meets a minimum length of two to prevent invalid inputs such as numbers of empty values. 
+    name = name.strip()
 
-<img width="628" height="251" alt="image" src="https://github.com/user-attachments/assets/cad1ae2a-00e7-4eec-920e-57721fa99862" />
+    if len(name) == 0:
+     return "Name Field cannot be left empty"
+    
+    if len(name) < 2 or len(name) > 30:
+       return "Name must be between 2 and 30 characters"
+    
+    for character in name:
+       if (not character.isalpha() or character == " "):
+          return "Name must only contain letters"
+    
+    return True
+```
 
-The validate_answer function ensures that manually typed answers aren't left blank by checking if the users input only has whitespaces.
+The ```validate_name``` function checks that the user's name contains only alphabetic characters and meets a minimum length of two to prevent invalid inputs such as numbers of empty values. 
 
-<img width="662" height="184" alt="image" src="https://github.com/user-attachments/assets/56a4bd81-0718-4409-85c7-87c297b0c0d5" />
+```
+def validate_answer(answer):
 
-Lastly, the validate_multiple_choice_answer function verifies that a selection has been made by checking if the user has changed the default selected value. 
+    answer = answer.strip()
+
+    if len(answer) == 0:
+     return "Answer Field cannot be left empty"
+    
+    return True
+```
+
+The ```validate_answer``` function ensures that manually typed answers aren't left blank by checking if the users input only has whitespaces.
+
+```
+def validate_multiple_choice_answer(answer):
+
+   if answer == "Select an Answer":
+      return "Please Select an Answer"
+   
+   return True
+```
+
+Lastly, the ```validate_multiple_choice_answer``` function verifies that a selection has been made by checking if the user has changed the default selected value. 
 
 If any validation doesn't return True then the application will display an error message prompting the user to submit in answer correctly. This ensures that all data is collected appropriately.
 
@@ -102,7 +134,7 @@ The questions.py module was created to separate quiz content from the main appli
     }
 ]
 ```
-The reason for storing quiz questions separate from the main moduleis to ensure that questions were loaded dynamically into the GUI using ```question_index``` attribute. The ```type``` key pair is also essential, as it controls the type of Tkinter widget displayed for each question. For example, manually typed questions generated an Entry widget, whereas multiple choice questions would  load an Option Menu.
+The reason for storing quiz questions separate from the main module is to ensure that questions were loaded dynamically into the GUI using ```question_index``` attribute. The ```type``` key pair is also essential, as it controls the type of Tkinter widget displayed for each question. For example, manually typed questions generated an Entry widget, whereas multiple choice questions would  load an Option Menu.
 
-Storing questions separate also allows flexibility within the application's design. Questions can be updated easily without making any major changes to the application logic. If this were hardcoded into the main module, updates would take longer, as the corressponding Tkinter widgets would also need to be adjusted. 
+Storing questions separate also allows flexibility within the application's design. Questions can be updated easily without making any major changes to the application logic. If this were hardcoded into the main module, updates would take longer, as the corresponding  Tkinter widgets would also need to be adjusted. 
 ## Testing Section
