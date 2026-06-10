@@ -40,5 +40,69 @@ Below are the features that were used to create this Quiz Application.
 - [unittest](https://docs.python.org/3/library/unittest.html) — Used for automated unit testing for validation functions
 
 ## Development Section 
+Following the completion of the initial prototype design and establishing technical requirements, the development of the quiz application became more manageable. This development process follows an organised design approach, involving the Codes structure, object-oriented design, GUI implementation, alongside input validation and logic for navigating questions. This section outlines the key features of the quiz application, including how different classes and functions work to ensure functionality.
+### Code Structure
+The application was designed using a modular, object‑oriented approach to improve code readability and separate different areas of functionality. For example, the quiz application has been seperated into four different Python files.
+<img width="307" height="63" alt="image" src="https://github.com/user-attachments/assets/35e2cf82-754e-4d4c-8027-73d4c55b7656" />
+<img width="319" height="20" alt="image" src="https://github.com/user-attachments/assets/45b60d2b-24af-417a-a8e1-f1f8ae5a30a4" />
+<img width="233" height="54" alt="image" src="https://github.com/user-attachments/assets/68ae824a-718e-4a4c-8b40-e951ef915c2a" />
+#### main.py
+<img width="961" height="596" alt="image" src="https://github.com/user-attachments/assets/4ba7afff-b056-435f-9b6b-cf19b1fde2df" />
 
+The main.py file contains the primary application logic and GUI functionality using Tkinter. It's main class QEQuizApp contains the overall quiz navigation, including user interaction, switching questions, and transiting to different sections. This class also contains the creation of Tkinter widgets, including labels, buttons, frames, and drop down menus.
+
+Object-oriented programming principles were also applied in this class including attributes like quiz frames (e.g, self.home_frame) and Tkinter widgets (e.g., self.title). This class also contains various methods, which will be discussed in more detail below. 
+
+#### validation.py
+<img width="1041" height="584" alt="image" src="https://github.com/user-attachments/assets/a6ac8c49-e5d6-45aa-816d-810c35e9f4ac" />
+
+The validation.py file contains a set of validation functions for checking user input throughout the quiz. These functions ensure that all required fields are correctly completed before allowing the user to proceed to the next question or frame. Separating this logic from main.py not only improves modularity but also allows the functions to be tested independently through automated unit tests. The file contains three key validation functions. 
+
+<img width="747" height="432" alt="image" src="https://github.com/user-attachments/assets/86ed5bc6-c203-4def-b580-4bd7ede6d827" />
+
+The validate_name function checks that the user's name contains only alphabetic characters and meets a minimum length of two to prevent invalid inputs such as numbers of empty values. 
+
+<img width="628" height="251" alt="image" src="https://github.com/user-attachments/assets/cad1ae2a-00e7-4eec-920e-57721fa99862" />
+
+The validate_answer function ensures that manually typed answers aren't left blank by checking if the users input only has whitespaces.
+
+<img width="662" height="184" alt="image" src="https://github.com/user-attachments/assets/56a4bd81-0718-4409-85c7-87c297b0c0d5" />
+
+Lastly, the validate_multiple_choice_answer function verifies that a selection has been made by checking if the user has changed the default selected value. 
+
+If any validation doesn't return True then the application will display an error message prompting the user to submit in answer correctly. This ensures that all data is collected appropriately.
+
+#### question.py
+The questions.py module was created to separate quiz content from the main application module. The quiz questions were stored using Python lists and dictionaries. Each section of the quiz was stored in a list, such as ```section_one``` and ```section_two```. Within each list, individual questions were stored as dictionaries with key-value pairs. Each question dictionary contains ```question``` representing the text displayed to the user, ```type``` which determines whether the questions were multiple choice or manually typed, and ```options``` stores multiple choice answers if applicable. An example of this is shown below with section one.
+```section_one = [
+    {
+      "type": "manual_answer",
+      "question": "What is the difference between functional and non-function testing in your own words?" 
+    },
+    {
+        "type": "multiple_choice",
+        "question": "What are test planning deliverables based off?",
+        "options": [
+            "Test Strategy",
+            "Contract",
+            "Exit Gates"
+        ],
+        "answer": "Test Strategy"
+    },
+    {
+        "type": "multiple_choice",
+        "question": "What does UAT stand for?",
+        "options": [
+            "User Access Testing",
+            "User Acceptance Testing",
+            "Unified Application Testing",
+            "Utility Assessment Technology"
+        ],
+        "answer": "User Acceptance Testing"
+    }
+]
+```
+The reason for storing quiz questions separate from the main moduleis to ensure that questions were loaded dynamically into the GUI using ```question_index``` attribute. The ```type``` key pair is also essential, as it controls the type of Tkinter widget displayed for each question. For example, manually typed questions generated an Entry widget, whereas multiple choice questions would  load an Option Menu.
+
+Storing questions separate also allows flexibility within the application's design. Questions can be updated easily without making any major changes to the application logic. If this were hardcoded into the main module, updates would take longer, as the corressponding Tkinter widgets would also need to be adjusted. 
 ## Testing Section
