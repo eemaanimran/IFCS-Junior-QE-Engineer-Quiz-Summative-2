@@ -137,4 +137,55 @@ The questions.py module was created to separate quiz content from the main appli
 The reason for storing quiz questions separate from the main module is to ensure that questions were loaded dynamically into the GUI using ```question_index``` attribute. The ```type``` key pair is also essential, as it controls the type of Tkinter widget displayed for each question. For example, manually typed questions generated an Entry widget, whereas multiple choice questions would  load an Option Menu.
 
 Storing questions separate also allows flexibility within the application's design. Questions can be updated easily without making any major changes to the application logic. If this were hardcoded into the main module, updates would take longer, as the corresponding  Tkinter widgets would also need to be adjusted. 
+
+#### GUI Implementation
+The GUI was developed using Tkinter. This quiz application consists of multiple frames that represent different stages of the user journey. This quiz contains the following frames: ```home_frame```, ```quiz_frame```. At the start, users are presented with the home page in ```home_frame``` where they enter their name before starting the quiz. After a valid name has been submitted, the home frame is destroyed in the method ```start_quiz()```and then replaced with the ```quiz_frame```. Using different frames helps present the user's journey as they navigate through each section of the quiz. 
+Tkinter widgets are also widely used throughout the quiz. This involves labels, entry fields, buttons etc as shown in the examples below. 
+```
+def home_page(self):
+   self.title = tk.Label (
+       self.root,
+       text ="Quality Engineering Quiz",
+       font=("Arial", 40, "bold"),
+       bg="#8ac5d4"
+   )
+   self.title.pack(pady=20)
+```
+```
+self.name_input = tk.Entry(self.home_frame, width="50")
+   self.name_input.pack(pady=10)
+```
+```
+  def start_quiz(self):
+    if self.name == None:
+      self.error_message.config(text="Please submit your name first")
+      return
+    
+    self.home_frame.destroy()
+ 
+    self.quiz_frame.pack()
+```
+Using the ```questions.py``` module, Tkinter widgets are displayed based on the type of question defined in the dictionary using ```if``` statements. For example, manually entered answers create an Entry widget whereas multiple-choice questions will generate an Option Menu.
+
+```
+self.question_message.pack(pady=20)
+    if question["type"] == "manual_answer":
+      self.user_answer = tk.Entry (
+        self.quiz_frame,
+        width=50
+      )
+```
+```
+   elif question["type"] == "multiple_choice":
+      self.selected_option = tk.StringVar()
+      self.selected_option.set("Select an Answer")
+      answer_selection = tk.OptionMenu(
+        self.quiz_frame,
+        self.selected_option,
+        *question["options"]
+```
+
+As mentioned above, the use of dynamic widgets and Tkinter frames helps to improve the flexibility of the application, as new questions or changes to the GUI can be implemented with minimal impact to existing code.
+
+
 ## Testing Section
