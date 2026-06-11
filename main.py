@@ -261,6 +261,10 @@ class QEQuizApp:
 
   
   def start_quiz(self):
+    """
+    Starts the quiz after successful name validation. 
+    Widgets on the home page are destroyed and section one of the quiz is loaded.
+    """
     if self.name == None:
       self.error_message.config(text="Please submit your name first")
       return
