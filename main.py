@@ -215,7 +215,7 @@ class QEQuizApp:
 
   def quiz_questions(self):
     """
-    Displays the current quiz question and displays the correct widget based on the type of question displayed, such as an entry field or drop down menu. 
+    Displays the current quiz question and the correct widget based on the type of question displayed, such as an entry field or drop down menu. 
     """
     self.quiz_frame.pack()
     question = self.current_section[self.question_index]
