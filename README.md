@@ -45,7 +45,7 @@ This class diagram displays the structure of the Quiz Application. The ```QEQuiz
 ## Development Section 
 Following the completion of the initial prototype design and establishing technical requirements, the development of the quiz application became more manageable. This development process follows an organised design approach, involving the Codes structure, object-oriented design, GUI implementation, alongside input validation and logic for navigating questions. This section outlines the key features of the quiz application, including how different classes and functions work to ensure functionality.
 ### Code Structure
-The application was designed using a modular, object‑oriented approach to improve code readability and separate different areas of functionality. For example, the quiz application has been seperated into four different Python files.
+The application was designed using a modular, object‑oriented approach to improve code readability and separate different areas of functionality. For example, the quiz application has been separated into four different Python files.
 <img width="307" height="63" alt="image" src="https://github.com/user-attachments/assets/35e2cf82-754e-4d4c-8027-73d4c55b7656" />
 <img width="319" height="20" alt="image" src="https://github.com/user-attachments/assets/45b60d2b-24af-417a-a8e1-f1f8ae5a30a4" />
 <img width="233" height="54" alt="image" src="https://github.com/user-attachments/assets/68ae824a-718e-4a4c-8b40-e951ef915c2a" />
@@ -253,7 +253,18 @@ After completing the final question, the application switches from ```section_on
         else:
           self.quiz_complete()
 ```
+#### CSV Writing
+To ensure persistent data storage in the quiz application, quiz responses are stored in a CSV file. When a user submits an answer, the application appends a new row to the CSV file containing the users name, the question presented, and the user the user has given. This ensures that responses are saved after closing the application and answers can be reviewed by recruiters or assessors.
 
-
+```
+    try: 
+      with open("quiz_results.csv", "a", newline="") as file:
+       writer = csv.writer(file)
+       writer.writerow([self.name, question["question"], answer])
+    except Exception as error:
+       self.error_message.config(text=f"An error occurred while saving data: {error}")
+       self.error_message.pack()
+       print(error)
+```
 
 ## Testing Section
