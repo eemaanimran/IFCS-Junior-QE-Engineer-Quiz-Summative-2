@@ -148,6 +148,8 @@ class QEQuizApp:
        writer = csv.writer(file)
        writer.writerow([self.name, question["question"], answer])
     except Exception as error:
+       self.error_message.config(text=f"An error occurred while saving data: {error}")
+       self.error_message.pack()
        print(error)
 
 
