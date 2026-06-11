@@ -191,7 +191,7 @@ self.question_message.pack(pady=20)
 As mentioned above, the use of dynamic widgets and Tkinter frames helps to improve the flexibility of the application, as new questions or changes to the GUI can be implemented with minimal impact to existing code.
 
 #### Question Navigation Logic
-The navigation of questions is controlled primarily through the ```next_question()``` method and the ```question_index``` attribute. This attribute tracks the current position of the user within a quiz section and is incremented after a valid answer is submitted.
+The navigation of questions is controlled primarily through the ```next_question()``` method and the ```question_index``` attribute. This attribute tracks the current position of the user within the quiz section and is incremented after a valid answer is submitted.
 ```self.question_index += 1```
 
 Before moving to the next question, the application validates the user’s response using the corresponding validation function. This process occurs in the ```next_question()``` method as shown below.
@@ -219,7 +219,7 @@ Before moving to the next question, the application validates the user’s respo
           self.error_message.config(text=validation)
           self.error_message.pack()
 ```
-After completing the final question, the application switches from ```section_one``` to ```section_two``` by updating the ```current_section``` attribute and resetting the index to zero. This method allows the same logic to be reused for multiple sections without repeating code. As each button widget has the ```next_question()``` method defined in its command section.
+After completing the final question, the application switches from ```section_one``` to ```section_two``` by updating the ```current_section``` attribute and resetting the index to zero. This method allows the same logic to be reused for multiple sections without repeating code. As each button widget has the ```next_question()``` method defined through its command attribute, so the user can navigate to the next part.
 ```
  if self.question_index < len(self.current_section):
         for widget in self.quiz_frame.winfo_children():
