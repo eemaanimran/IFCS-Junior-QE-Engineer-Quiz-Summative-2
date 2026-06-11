@@ -3,7 +3,8 @@ from validation import validate_name, validate_answer, validate_multiple_choice_
 
 class TestValidateAnswer(unittest.TestCase):
     """
-    Automated unit tests for validation module. These tests verify that validation functions return the expected outputs for valid and invalid user inputs.
+    Automated unit tests for validation module. 
+    These tests verify that validation functions return the expected outputs for valid and invalid user inputs.
     """
     def test_valid_name(self):
         result = validate_name("John")
