@@ -93,7 +93,7 @@ class QEQuizApp:
 
   def quiz_complete(self):
     """
-    Displays the quiz completion screen.
+    Displays the quiz completion screen showing the user has finished the quiz.
     """
     for widget in self.quiz_frame.winfo_children():
       widget.destroy()
