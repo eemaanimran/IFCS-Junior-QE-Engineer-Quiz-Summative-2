@@ -45,7 +45,7 @@ This class diagram displays the structure of the Quiz Application. The ```QEQuiz
 ## Development Section 
 Following the completion of the initial prototype design and establishing technical requirements, the development of the quiz application became more manageable. This development process follows an organised design approach, involving the Codes structure, object-oriented design, GUI implementation, alongside input validation and logic for navigating questions. This section outlines the key features of the quiz application, including how different classes and functions work to ensure functionality.
 ### Code Structure
-The application was designed using a modular, object‑oriented approach to improve code readability and separate different areas of functionality. For example, the quiz application has been separated into four different Python files.
+The application was designed using a modular, object‑oriented approach to improve code readability and separate different areas of functionality. For example, the quiz application has been separated into four different Python modules.
 <img width="307" height="63" alt="image" src="https://github.com/user-attachments/assets/35e2cf82-754e-4d4c-8027-73d4c55b7656" />
 <img width="319" height="20" alt="image" src="https://github.com/user-attachments/assets/45b60d2b-24af-417a-a8e1-f1f8ae5a30a4" />
 <img width="233" height="54" alt="image" src="https://github.com/user-attachments/assets/68ae824a-718e-4a4c-8b40-e951ef915c2a" />
@@ -59,7 +59,7 @@ Object-oriented programming principles were also applied in this class including
 #### validation.py
 <img width="1041" height="584" alt="image" src="https://github.com/user-attachments/assets/a6ac8c49-e5d6-45aa-816d-810c35e9f4ac" />
 
-The validation.py file contains a set of validation functions for checking user input throughout the quiz. These functions ensure that all required fields are correctly completed before allowing the user to proceed to the next question or frame. Separating this logic from the main module not only improves modularity but also allows the functions to be tested independently through automated unit tests. The file contains three key validation functions. 
+The validation.py module contains a set of validation functions for checking user input throughout the quiz. These functions ensure that all required fields are correctly completed before allowing the user to proceed to the next question or frame. Separating this logic from the main module not only improves modularity but also allows the functions to be tested independently through automated unit tests. The module contains three key validation functions. 
 
 ```
 def validate_name(name):
