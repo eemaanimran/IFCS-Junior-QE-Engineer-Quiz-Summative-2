@@ -190,5 +190,70 @@ self.question_message.pack(pady=20)
 
 As mentioned above, the use of dynamic widgets and Tkinter frames helps to improve the flexibility of the application, as new questions or changes to the GUI can be implemented with minimal impact to existing code.
 
+#### Question Navigation Logic
+The navigation of questions is controlled primarily through the ```next_question()``` method and the ```question_index``` attribute. This attribute tracks the current position of the user within a quiz section and is incremented after a valid answer is submitted.
+```self.question_index += 1```
+
+Before moving to the next question, the application validates the user’s response using the corresponding validation function. This process occurs in the ```next_question()``` method as shown below.
+```
+ def next_question(self):
+    question = self.current_section[self.question_index]
+    self.error_message= tk.Label(
+    self.quiz_frame,
+    text="",
+    fg="red",
+    font=("Arial", 14),
+    bg="#8ac5d4"
+    )
+    if question["type"] == "manual_answer":
+      answer = self.user_answer.get()
+      validation = validate_answer(answer)
+      if validation != True:
+        self.error_message.config(text=validation)
+        self.error_message.pack()
+        return
+    elif question["type"] == "multiple_choice":
+        answer = self.selected_option.get()
+        validation = validate_multiple_choice_answer(answer)
+        if validation != True:
+          self.error_message.config(text=validation)
+          self.error_message.pack()
+```
+After completing the final question, the application switches from ```section_one``` to ```section_two``` by updating the ```current_section``` attribute and resetting the index to zero. This method allows the same logic to be reused for multiple sections without repeating code. As each button widget has the ```next_question()``` method defined in its command section.
+```
+ if self.question_index < len(self.current_section):
+        for widget in self.quiz_frame.winfo_children():
+          widget.destroy()
+        if self.current_section == section_one:
+          section_title = "Section 1: Testing Fundamentals"
+        else:
+          section_title = "Section 2: Automation Knowledge"
+        self.section_label = tk.Label(
+        self.quiz_frame,
+        text=section_title,
+        font=("Arial", 25),
+        bg="#8ac5d4"
+        )
+        self.section_label.pack(pady=10)
+        self.quiz_questions()
+    else:
+        if self.current_section == section_one:
+          self.current_section = section_two
+          self.question_index = 0
+          for widget in self.quiz_frame.winfo_children():
+            widget.destroy()
+          self.section_label = tk.Label(
+          self.quiz_frame,
+          text="Section 2: Automation Knowledge",
+          font=("Arial", 25),
+          bg="#8ac5d4"
+         )
+          self.section_label.pack(pady=10)
+          self.quiz_questions() 
+        else:
+          self.quiz_complete()
+```
+
+
 
 ## Testing Section
