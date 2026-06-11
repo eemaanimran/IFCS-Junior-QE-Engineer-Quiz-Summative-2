@@ -4,8 +4,16 @@ import csv
 from questions import section_one, section_two
 
 class QEQuizApp:
+  """
+  Main class for the Quality Engineering Quiz application
+
+  This class manages and  handles the graphical user interface, user interaction, question navigation, and CSV data storage for each input
+  """
  
   def __init__(self):
+   """
+   Initialises the quiz application by creating the main window, setting up the user interface components, and defining the initial quiz state at the beginning, including the current question index, section, and name.
+   """
    self.root = tk.Tk()
    self.root.title("Quality Engineering Quiz")
    self.root.geometry("800x600")
@@ -17,6 +25,9 @@ class QEQuizApp:
    self.root.configure(bg="#8ac5d4")
 
   def home_page(self):
+   """
+   Creates and displays the quiz's home page. This page allows the user to enter their name, validate details using input validators, and start the quiz.
+   """
    self.title = tk.Label (
        self.root,
        text ="Quality Engineering Quiz",
@@ -81,6 +92,9 @@ class QEQuizApp:
    self.start_button.pack(pady=10)
 
   def quiz_complete(self):
+    """
+    Displays the quiz completion screen.
+    """
     for widget in self.quiz_frame.winfo_children():
       widget.destroy()
 
@@ -110,6 +124,10 @@ class QEQuizApp:
 
 
   def submit_name(self):
+   """
+   Validates and stores the participant's name.
+   If the name is valid, it's stored in self.name. If the name submitted isn't valid, an error messsge is displayed until submitted in an appropriate format.
+   """
    name_entered = self.name_input.get()
    validation_outcome = validate_name(name_entered)
    if validation_outcome == True:
@@ -121,6 +139,10 @@ class QEQuizApp:
      self.error_message.config(text=validation_outcome)
 
   def next_question(self):
+    """
+    Validates the users answer on the question they're currently on and progresses the quiz sections.
+    If validation is returned as true, the users response is written to the CSV file and the next question is displayed. If the current section is complete, the application transitions to the next section or complete screen.
+    """
     question = self.current_section[self.question_index]
     self.error_message= tk.Label(
     self.quiz_frame,
@@ -192,6 +214,9 @@ class QEQuizApp:
 
 
   def quiz_questions(self):
+    """
+    Displays the current quiz question and displays the correct input widget based on the type of question displayed, such as an entry field or drop down menu. 
+    """
     self.quiz_frame.pack()
     question = self.current_section[self.question_index]
 
