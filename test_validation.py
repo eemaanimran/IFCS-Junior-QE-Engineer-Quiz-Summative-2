@@ -2,6 +2,9 @@ import unittest
 from validation import validate_name, validate_answer, validate_multiple_choice_answer
 
 class TestValidateAnswer(unittest.TestCase):
+    """
+    Automated unit tests for validation module. These tests verify that validation functions return the expected outputs for valid and invalid user inputs.
+    """
     def test_valid_name(self):
         result = validate_name("John")
         self.assertEqual(result, True)
