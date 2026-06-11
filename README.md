@@ -39,6 +39,9 @@ Below are the features that were used to create this Quiz Application.
 - [csv](https://docs.python.org/3/library/csv.html) — Used for CSV data storage, and storing quiz responses
 - [unittest](https://docs.python.org/3/library/unittest.html) — Used for automated unit testing for validation functions
 
+### UML diagram
+This class diagram displays the structure of the Quiz Application. The ```QEQuizApp``` class manages the user interface, question navigation, and recording results. This class is dependant on ```validation.py``` to validate user input and uses the question data stored in ```question.py``` for the quiz content.
+
 ## Development Section 
 Following the completion of the initial prototype design and establishing technical requirements, the development of the quiz application became more manageable. This development process follows an organised design approach, involving the Codes structure, object-oriented design, GUI implementation, alongside input validation and logic for navigating questions. This section outlines the key features of the quiz application, including how different classes and functions work to ensure functionality.
 ### Code Structure
