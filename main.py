@@ -93,7 +93,7 @@ class QEQuizApp:
 
   def quiz_complete(self):
     """
-    Displays the quiz completion screen showing the user has finished the quiz.
+    Displays the quiz completion screen after the user has finished the quiz.
     """
     for widget in self.quiz_frame.winfo_children():
       widget.destroy()
@@ -215,7 +215,7 @@ class QEQuizApp:
 
   def quiz_questions(self):
     """
-    Displays the current quiz question and displays the correct input widget based on the type of question displayed, such as an entry field or drop down menu. 
+    Displays the current quiz question and displays the correct widget based on the type of question displayed, such as an entry field or drop down menu. 
     """
     self.quiz_frame.pack()
     question = self.current_section[self.question_index]
