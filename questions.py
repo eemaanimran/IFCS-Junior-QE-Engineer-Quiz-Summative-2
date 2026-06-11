@@ -1,3 +1,8 @@
+"""
+Stores question data for the quiz application. 
+The questions are organised into sections using lists and dictionaries, so they can be dynamically loaded.
+Each question has the question text, question type, and multiple choice options where necessary.
+"""
 section_one = [
     {
       "type": "manual_answer",
