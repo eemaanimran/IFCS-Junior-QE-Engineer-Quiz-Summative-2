@@ -349,7 +349,8 @@ Select ```Start Quiz``` to begin the quiz. This should then display Section 1 Qu
 ### 4. Answer Questions
 Questions will be shown as either manually written responses, where your answer should be typed out, or multiple choice, where you should select an option from a list of options in the drop down menu. Ensure that no questions are left blank otherwise you cannot progress to the next question.
 <img width="1839" height="631" alt="image" src="https://github.com/user-attachments/assets/54ee52ef-81a8-47f8-ac13-e3526d84443d" />
-<img width="968" height="310" alt="image" src="https://github.com/user-attachments/assets/ccfb8990-084f-4ac5-a166-3720f10361e9" />
+<img width="1164" height="650" alt="image" src="https://github.com/user-attachments/assets/027dc5ef-a2f1-49fc-97a7-bf60f98dea31" />
+
 ### 5. Quiz Complete!
 Once you've gone through both sections, a completion screen will be displayed confirming that you've successfully finished the quiz.
 <img width="1690" height="833" alt="image" src="https://github.com/user-attachments/assets/313f37d4-ec58-4772-b555-fbaf5d09b582" />
