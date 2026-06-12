@@ -1,5 +1,5 @@
-import unittest
-from validation import validate_name, validate_answer, validate_multiple_choice_answer
+import unittest # Automated unit tests
+from validation import validate_name, validate_answer, validate_multiple_choice_answer # Input validators
 
 class TestValidateAnswer(unittest.TestCase):
     """

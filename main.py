@@ -1,7 +1,7 @@
-import tkinter as tk 
-from validation import validate_name, validate_answer, validate_multiple_choice_answer
-import csv
-from questions import section_one, section_two
+import tkinter as tk # Importing Tkinter for GUI design
+from validation import validate_name, validate_answer, validate_multiple_choice_answer # Input validators
+import csv # CSV for data storage
+from questions import section_one, section_two # Question data
 
 class QEQuizApp:
   """
