@@ -351,10 +351,12 @@ Questions will be shown as either manually written responses, where your answer 
 <img width="1839" height="631" alt="image" src="https://github.com/user-attachments/assets/54ee52ef-81a8-47f8-ac13-e3526d84443d" />
 <img width="968" height="310" alt="image" src="https://github.com/user-attachments/assets/ccfb8990-084f-4ac5-a166-3720f10361e9" />
 ### 5. Quiz Complete!
-Once you've gone through both sections, a completion screen will be displayed confirming that you've successfully finished the quiz. 
+Once you've gone through both sections, a completion screen will be displayed confirming that you've successfully finished the quiz.
+<img width="1690" height="833" alt="image" src="https://github.com/user-attachments/assets/313f37d4-ec58-4772-b555-fbaf5d09b582" />
 
 After a candidate has completed the quiz, recruiters or assessors can access this CSV file to review answers and reach a solid conclusion about a potential candidate or early professional about their current knowledge of Automation Testing. An example of this CSV file is shown below, opened in Microsoft Excel.
-<img width="845" height="193" alt="image" src="https://github.com/user-attachments/assets/bb45a78c-1843-4f31-8309-fb8366aea147" />
+<img width="881" height="213" alt="image" src="https://github.com/user-attachments/assets/869ee28d-487a-41a9-ba91-945aa153dcbc" />
+
 
 ## Technical Documentation
 
