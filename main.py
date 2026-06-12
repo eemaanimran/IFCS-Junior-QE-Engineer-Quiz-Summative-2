@@ -107,7 +107,7 @@ class QEQuizApp:
     complete_message.pack(pady=40)
     answers_recorded_message = tk.Label(
       self.quiz_frame,
-      text="Your answers have been recorded and will be reviewed by someone from our team shortly!",
+      text="Your answers have been recorded and will be reviewed shortly!",
       font=("Arial", 28),
       bg="#8ac5d4"
     )

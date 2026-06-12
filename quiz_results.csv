@@ -1,6 +1,6 @@
 Name,Question,Anwer
-Eemaan,What is the difference between functional and non-function testing in your own words?,Functional Testing....
-Eemaan,What are test planning deliverables based off?,Contract
+Eemaan,What is the difference between functional and non-function testing in your own words?,Functional testing..
+Eemaan,What are test planning deliverables based off?,Test Strategy
 Eemaan,What does UAT stand for?,User Acceptance Testing
-Eemaan,Describe when API Testing should be used,Test
-Eemaan,What is a locator and how is it used for automation testing?,Test
+Eemaan,Describe when API Testing should be used,API Testing...
+Eemaan,What is a locator and how is it used for automation testing?,Locaters..
