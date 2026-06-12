@@ -16,7 +16,7 @@ class QEQuizApp:
    """
    self.root = tk.Tk()
    self.root.title("Quality Engineering Quiz")
-   self.root.geometry("800x600")
+   self.root.geometry("900x650")
    self.name = None
    self.quiz_frame = tk.Frame(self.root, bg="#8ac5d4")
    self.home_frame = tk.Frame(self.root, bg="#8ac5d4")
