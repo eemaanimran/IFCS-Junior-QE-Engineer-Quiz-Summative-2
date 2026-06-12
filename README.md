@@ -27,10 +27,10 @@ Below are tables listing each type of requirements for this Quiz App.
 #### Non-Functional Requirements
 | ID  | Requirement |
 |-----|-------------|
-| NFR1 | The application should have clearly labelled input fields and buttons to support users with less technical expertise. |
-| NFR2 |  |
-| NFR3 |  |
-| NFR4 |  |
+| NFR1 | The application should write responses to the CSV file within 2 seconds after submission |
+| NFR2 | The application should load and display each question within a few milliseconds of user interaction. |
+| NFR3 | The application should provide clear error messages where necessary |
+| NFR4 | The application should provide a consistent layout and font style acrosss every section |
 
 ### Tech Stack outline
 Below are the features that were used to create this Quiz Application.
@@ -40,7 +40,9 @@ Below are the features that were used to create this Quiz Application.
 - [unittest](https://docs.python.org/3/library/unittest.html) — Used for automated unit testing for validation functions
 
 ### UML diagram
-This class diagram displays the structure of the Quiz Application. The ```QEQuizApp``` class manages the user interface, question navigation, and recording results. This class is dependant on ```validation.py``` to validate user input and uses the question data stored in ```question.py``` for the quiz content.
+This diagram displays the structure of the Quiz Application. The ```QEQuizApp``` class manages the user interface, question navigation, and recording results. This class is dependant on ```validation.py``` to validate user input and uses the question data stored in ```question.py``` for the quiz content.
+<img width="795" height="628" alt="Screenshot 2026-06-11 121828" src="https://github.com/user-attachments/assets/4700691d-d1c1-440c-871e-e518bbf2b27a" />
+
 
 ## Development Section 
 Following the completion of the initial prototype design and establishing technical requirements, the development of the quiz application became more manageable. This development process follows an organised design approach, involving the Codes structure, object-oriented design, GUI implementation, alongside input validation and logic for navigating questions. This section outlines the key features of the quiz application, including how different classes and functions work to ensure functionality.
@@ -50,14 +52,12 @@ The application was designed using a modular, object‑oriented approach to impr
 <img width="319" height="20" alt="image" src="https://github.com/user-attachments/assets/45b60d2b-24af-417a-a8e1-f1f8ae5a30a4" />
 <img width="233" height="54" alt="image" src="https://github.com/user-attachments/assets/68ae824a-718e-4a4c-8b40-e951ef915c2a" />
 #### main.py
-<img width="961" height="596" alt="image" src="https://github.com/user-attachments/assets/4ba7afff-b056-435f-9b6b-cf19b1fde2df" />
 
 The ```main.py``` module contains the primary application logic and GUI functionality using Tkinter. It's main class ```QEQuizApp``` contains the overall quiz navigation, including user interaction, switching questions, and transiting to different sections. This class also contains the creation of Tkinter widgets, including labels, buttons, frames, and drop down menus.
 
 Object-oriented programming principles were also applied in this class including attributes like quiz frames (e.g, ```self.home_frame```) and Tkinter widgets (e.g., ```self.title```). This class also contains various methods, which will be discussed in more detail below. 
 
 #### validation.py
-<img width="1041" height="584" alt="image" src="https://github.com/user-attachments/assets/a6ac8c49-e5d6-45aa-816d-810c35e9f4ac" />
 
 The validation.py module contains a set of validation functions for checking user input throughout the quiz. These functions ensure that all required fields are correctly completed before allowing the user to proceed to the next question or frame. Separating this logic from the main module not only improves modularity but also allows the functions to be tested independently through automated unit tests. The module contains three key validation functions. 
 
@@ -105,10 +105,10 @@ def validate_multiple_choice_answer(answer):
 
 Lastly, the ```validate_multiple_choice_answer``` function verifies that a selection has been made by checking if the user has changed the default selected value. 
 
-If any validation doesn't return True then the application will display an error message prompting the user to submit in answer correctly. This ensures that all data is collected appropriately.
+If any validation doesn't return True then the application will display an error message prompting the user to submit an answer correctly. This ensures that all data is collected appropriately.
 
 #### question.py
-The questions.py module was created to separate quiz content from the main application module. The quiz questions were stored using Python lists and dictionaries. Each section of the quiz was stored in a list, such as ```section_one``` and ```section_two```. Within each list, individual questions were stored as dictionaries with key-value pairs. Each question dictionary contains ```question``` representing the text displayed to the user, ```type``` which determines whether the questions were multiple choice or manually typed, and ```options``` stores multiple choice answers if applicable. An example of this is shown below with section one.
+The questions.py module was created to separate quiz content from the main application module. The quiz questions are stored using Python lists and dictionaries. Each section of the quiz are stored in a list, including ```section_one``` and ```section_two```. Within each list, individual questions are stored as dictionaries with key-value pairs. Each question dictionary contains ```question``` representing the text displayed to the user, ```type``` which determines whether the questions were multiple choice or manually typed, and ```options``` stores multiple choice answers if applicable. An example of this is shown below with section one.
 ```section_one = [
     {
       "type": "manual_answer",
@@ -137,7 +137,7 @@ The questions.py module was created to separate quiz content from the main appli
     }
 ]
 ```
-The reason for storing quiz questions separate from the main module is to ensure that questions were loaded dynamically into the GUI using ```question_index``` attribute. The ```type``` key pair is also essential, as it controls the type of Tkinter widget displayed for each question. For example, manually typed questions generated an Entry widget, whereas multiple choice questions would  load an Option Menu.
+The reason for storing quiz questions separate from the main module is to ensure that questions were loaded dynamically into the GUI using ```question_index``` attribute. The ```type``` key pair is also essential, as it controls the type of Tkinter widget displayed for each question. For example, manually typed questions generated an Entry widget, whereas multiple choice questions would load an Option Menu.
 
 Storing questions separate also allows flexibility within the application's design. Questions can be updated easily without making any major changes to the application logic. If this were hardcoded into the main module, updates would take longer, as the corresponding  Tkinter widgets would also need to be adjusted. 
 
@@ -333,7 +333,7 @@ As shown in the code above, several areas were tested including:
 All tests passed successfully, demonstrating that the validation functions behaved as expected for both valid and invalid inputs. A screenshot of these unit tests passing in the terminal is shown below
 <img width="911" height="127" alt="image" src="https://github.com/user-attachments/assets/715cdbd6-89b6-42c4-bb8a-b4d7683ff951" />
 #####  Continuous Integration 
-Continuous Integration (CI) was also implemented as part of the testing process for this Quiz application using Github Actions to automate execution of unit tests when changes were pushed to the repository. This approach can help identify any errors during early development, ensuring that validation works correctly even after pushing new code. The screenshot below shows CI passing for this GitHub repository, ensuring that validation is consistently working as intended.
+Continuous Integration (CI) was also implemented as part of the testing process for this Quiz application using GitHub Actions to automate execution of unit tests when changes were pushed to the repository. This approach can help identify any errors during early development, ensuring that validation works correctly even after pushing new code. The screenshot below shows CI passing for this GitHub repository, ensuring that validation is consistently working as intended.
 <img width="1358" height="342" alt="image" src="https://github.com/user-attachments/assets/e87c7569-d84c-4581-99df-a794e8ceb8c6" />
 
 ## User Documentation
@@ -351,10 +351,12 @@ Questions will be shown as either manually written responses, where your answer 
 <img width="1839" height="631" alt="image" src="https://github.com/user-attachments/assets/54ee52ef-81a8-47f8-ac13-e3526d84443d" />
 <img width="968" height="310" alt="image" src="https://github.com/user-attachments/assets/ccfb8990-084f-4ac5-a166-3720f10361e9" />
 ### 5. Quiz Complete!
-Once you've gone through both sections, a completion screen will be displayed confirming that you've successfully finished the quiz. 
+Once you've gone through both sections, a completion screen will be displayed confirming that you've successfully finished the quiz.
+<img width="1690" height="833" alt="image" src="https://github.com/user-attachments/assets/313f37d4-ec58-4772-b555-fbaf5d09b582" />
 
 After a candidate has completed the quiz, recruiters or assessors can access this CSV file to review answers and reach a solid conclusion about a potential candidate or early professional about their current knowledge of Automation Testing. An example of this CSV file is shown below, opened in Microsoft Excel.
-<img width="845" height="193" alt="image" src="https://github.com/user-attachments/assets/bb45a78c-1843-4f31-8309-fb8366aea147" />
+<img width="881" height="213" alt="image" src="https://github.com/user-attachments/assets/869ee28d-487a-41a9-ba91-945aa153dcbc" />
+
 
 ## Technical Documentation
 
