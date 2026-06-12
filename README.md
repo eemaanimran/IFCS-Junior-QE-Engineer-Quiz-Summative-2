@@ -27,10 +27,10 @@ Below are tables listing each type of requirements for this Quiz App.
 #### Non-Functional Requirements
 | ID  | Requirement |
 |-----|-------------|
-| NFR1 | The application should have clearly labelled input fields and buttons to support users with less technical expertise. |
-| NFR2 |  |
-| NFR3 |  |
-| NFR4 |  |
+| NFR1 | The application should write responses to the CSV file within 2 seconds after submission |
+| NFR2 | The application should load and display each question within a few milliseconds of user interaction. |
+| NFR3 | The application should provide clear error messages where necessary |
+| NFR4 | The application should provide a consistent layout and font style acrosss every section |
 
 ### Tech Stack outline
 Below are the features that were used to create this Quiz Application.
@@ -40,7 +40,9 @@ Below are the features that were used to create this Quiz Application.
 - [unittest](https://docs.python.org/3/library/unittest.html) — Used for automated unit testing for validation functions
 
 ### UML diagram
-This class diagram displays the structure of the Quiz Application. The ```QEQuizApp``` class manages the user interface, question navigation, and recording results. This class is dependant on ```validation.py``` to validate user input and uses the question data stored in ```question.py``` for the quiz content.
+This diagram displays the structure of the Quiz Application. The ```QEQuizApp``` class manages the user interface, question navigation, and recording results. This class is dependant on ```validation.py``` to validate user input and uses the question data stored in ```question.py``` for the quiz content.
+<img width="795" height="628" alt="Screenshot 2026-06-11 121828" src="https://github.com/user-attachments/assets/4700691d-d1c1-440c-871e-e518bbf2b27a" />
+
 
 ## Development Section 
 Following the completion of the initial prototype design and establishing technical requirements, the development of the quiz application became more manageable. This development process follows an organised design approach, involving the Codes structure, object-oriented design, GUI implementation, alongside input validation and logic for navigating questions. This section outlines the key features of the quiz application, including how different classes and functions work to ensure functionality.
