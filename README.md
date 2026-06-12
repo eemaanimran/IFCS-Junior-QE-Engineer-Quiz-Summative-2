@@ -268,3 +268,71 @@ To ensure persistent data storage in the quiz application, quiz responses are st
 ```
 
 ## Testing Section
+Both manual testing and automated unit testing were used throughout the development of the quiz application. These testing approaches helped verify that the validation logic and user focused actions are successfully functioning as intended. 
+Manual testing was performed during development to verify that users can navigate between quiz sections, submit answers, and complete the quiz successfully. This type of testing was particularly useful for identifying issues related to the GUI, widget logic, and question navigation. The table below shows actions performed for manual testing and their results.
+
+### Manual Testing Table of results
+
+| Test ID | Test Description | Expected Result | Actual Result | Pass/Fail |
+|----------|---------------|----------------|---------------|---------|
+| 1 | Submit empty name | Error message ```Name Field cannot be left empty``` is displayed | Successfully displayed error message | Pass |
+| 2 | Submit numbers as a name | Error message ``Name must only contain letters`` is displayed | Successfully displayed error message | Pass |
+| 3 | Submit name with only one character | Error message ``Name must be between 2 and 30 characters`` is displayed | Successfully displayed error message | Pass |
+| 4 | Submit valid name | Validation message ```Name Successfully submitted!``` appears | Validation message appeared successfully | Pass |
+| 5 | Start the quiz | User switches to the first question after clicking ```Start Quiz!``` | Successfully switched to Section 1 question 1 | Pass |
+| 6 | Submit empty manual answer | Error message ```Answer Field cannot be left empty``` is displayed | Error message displayed correctly. | Pass |
+| 7 | Leave multiple choice question on default answer | Error message ```Please Select an Answer``` is displayed | Successfully displayed error message | Pass |
+| 8 | Submit valid manual answer | User progresses to the next question | Next question displayed successfully | Pass |
+| 9 | Submit valid multiple choice answer | User progresses to the next question | Next question displayed successfully | Pass|
+| 10 | Successfully complete all section 1 questions | Section 2 is displayed | Section 2 displayed successfully | Pass |
+| 11 | Successfully complete all section 2 questions | Quiz completion screen is displayed | Completion screen displayed successfully | Pass |
+| 12 | Submit quiz response | Name, question, and answer written to CSV file | Data written successfully to ```quiz_results.csv``` file | Pass |
+
+Overall, these manual testing results confirm that the quiz application functions as intended, with all features working correctly and validation rules effectively prevent invalid input.
+
+### Unit Testing 
+Automated unit testing was implemented using Python's built in ```unittest``` framework. These unit tests focused on input validation functions that can be tested separately from the GUI, this ensures high consistency of these validation functions. 
+```
+ def test_valid_name(self):
+        result = validate_name("John")
+        self.assertEqual(result, True)
+
+    def test_empty_name(self):
+        result = validate_name("")
+        self.assertEqual(result, "Name Field cannot be left empty")
+
+    def test_valid_manual_answer(self):
+        result = validate_answer("API Testing")
+        self.assertEqual(result, True)
+
+    def test_empty_manual_answer(self):
+        result = validate_answer("")
+        self.assertEqual(result, "Answer Field cannot be left empty")
+
+    def test_valid_multiple_choice_answer(self):
+        result = validate_multiple_choice_answer("User Acceptance Testing")
+        self.assertEqual(result, True)
+
+    def test_empty_multiple_choice_answer(self):
+        result = validate_multiple_choice_answer("Select an Answer")
+        self.assertEqual(result, "Please Select an Answer")
+
+
+if __name__ == "__main__":
+     unittest.main()
+```
+As shown in the code above, several areas were tested including:
+* Valid user names
+* Empty user name submitted
+* Valid manually entered answer
+* Empty manually enered answer
+* Valid multiple choice answer
+* Empty multiple choice answer
+
+#### Unit Testing Outcomes
+All tests passed successfully, demonstrating that the validation functions behaved as expected for both valid and invalid inputs. A screenshot of these unit tests passing in the terminal is shown below
+<img width="911" height="127" alt="image" src="https://github.com/user-attachments/assets/715cdbd6-89b6-42c4-bb8a-b4d7683ff951" />
+#####  Continuous Integration 
+Continuous Integration (CI) was also implemented as part of the testing process for this Quiz application using Github Actions to automate execution of unit tests when changes were pushed to the repository. This approach can help identify any errors during early development, ensuring that validation works correctly even after pushing new code. The screenshot below shows CI passing for this GitHub repository, ensuring that validation is consistently working as intended.
+<img width="585" height="114" alt="image" src="https://github.com/user-attachments/assets/b6e492be-a397-4b0d-b5e0-ed8c9c6228f0" />
+
