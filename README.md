@@ -268,8 +268,8 @@ To ensure persistent data storage in the quiz application, quiz responses are st
 ```
 
 ## Testing Section
-Both manual testing and automated unit testing were used throughout the development of the quiz application. These testing approaches helped verify that the validation logic and user focused actions are successfully functioning as intended. 
-Manual testing was performed during development to verify that users can navigate between quiz sections, submit answers, and complete the quiz successfully. This type of testing was particularly useful for identifying issues related to the GUI, widget logic, and question navigation. The table below shows actions performed for manual testing and their results.
+Both manual testing and automated unit testing were used throughout the development of the quiz application. These testing approaches help verify that the validation logic and user focused actions are successfully functioning as intended. 
+Manual testing was done during development to verify that users can navigate between quiz sections, submit answers, and complete the quiz successfully. This type of testing was particularly useful for identifying issues related to the GUI, widget logic for question types, and question navigation, so if any errors are detected, it's easier to focus on those specific areas rather than searching through the entire codebase. The table below shows actions performed for manual testing and their results.
 
 ### Manual Testing Table of results
 
@@ -325,7 +325,7 @@ As shown in the code above, several areas were tested including:
 * Valid user names
 * Empty user name submitted
 * Valid manually entered answer
-* Empty manually enered answer
+* Empty manually entered answer
 * Valid multiple choice answer
 * Empty multiple choice answer
 
@@ -334,5 +334,9 @@ All tests passed successfully, demonstrating that the validation functions behav
 <img width="911" height="127" alt="image" src="https://github.com/user-attachments/assets/715cdbd6-89b6-42c4-bb8a-b4d7683ff951" />
 #####  Continuous Integration 
 Continuous Integration (CI) was also implemented as part of the testing process for this Quiz application using Github Actions to automate execution of unit tests when changes were pushed to the repository. This approach can help identify any errors during early development, ensuring that validation works correctly even after pushing new code. The screenshot below shows CI passing for this GitHub repository, ensuring that validation is consistently working as intended.
-<img width="585" height="114" alt="image" src="https://github.com/user-attachments/assets/b6e492be-a397-4b0d-b5e0-ed8c9c6228f0" />
+<img width="1358" height="342" alt="image" src="https://github.com/user-attachments/assets/e87c7569-d84c-4581-99df-a794e8ceb8c6" />
+
+## Documentation Section
+
+
 
