@@ -336,7 +336,23 @@ All tests passed successfully, demonstrating that the validation functions behav
 Continuous Integration (CI) was also implemented as part of the testing process for this Quiz application using Github Actions to automate execution of unit tests when changes were pushed to the repository. This approach can help identify any errors during early development, ensuring that validation works correctly even after pushing new code. The screenshot below shows CI passing for this GitHub repository, ensuring that validation is consistently working as intended.
 <img width="1358" height="342" alt="image" src="https://github.com/user-attachments/assets/e87c7569-d84c-4581-99df-a794e8ceb8c6" />
 
-## Documentation Section
+## User Documentation
+This Quality Engineering quiz has been designed for potential candidates or onboarded early professionals joining Automation Testing to gain an insight into their current knowledge about the practice in general and their automation testing knowledge. The quiz is intended for use for both recruiters to analyse the quiz results and candidates. Below are the steps candidates can take to interact with the quiz. 
+### 1. Launch the application
+To run the application, execute the code from ```main.py```. After launching, the home screen should be displayed. 
+<img width="1145" height="820" alt="image" src="https://github.com/user-attachments/assets/5a1f9ceb-d177-409e-a359-2547e18a858e" />
+### 2. Enter your name
+Enter your name into the input field and press ```Submit name```. A message will then appear to show whether or not your name has been successfully submitted.
+<img width="1035" height="706" alt="image" src="https://github.com/user-attachments/assets/1a32101f-389b-4724-864b-04f496f00cdc" />
+### 3. Start the Quiz
+Select ```Start Quiz``` to begin the quiz. This should then display Section 1 Question 1.
+### 4. Answer Questions
+Questions will be shown as either manually written responses, where your answer should be typed out, or multiple choice, where you should select an option from a list of options in the drop down menu. Ensure that no questions are left blank otherwise you cannot progress to the next question.
+<img width="1839" height="631" alt="image" src="https://github.com/user-attachments/assets/54ee52ef-81a8-47f8-ac13-e3526d84443d" />
+<img width="968" height="310" alt="image" src="https://github.com/user-attachments/assets/ccfb8990-084f-4ac5-a166-3720f10361e9" />
+### 5. Quiz Complete!
+Once you've gone through both sections, a completion screen will be displayed confirming that you've successfully finished the quiz. 
 
-
+After a candidate has completed the quiz, recruiters or assessors can access this CSV file to review answers and reach a solid conclusion about a potential candidate or early professional about their current knowledge of Automation Testing. An example of this CSV file is shown below, opened in Microsoft Excel.
+<img width="845" height="193" alt="image" src="https://github.com/user-attachments/assets/bb45a78c-1843-4f31-8309-fb8366aea147" />
 
