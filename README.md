@@ -107,10 +107,10 @@ def validate_multiple_choice_answer(answer):
 
 Lastly, the ```validate_multiple_choice_answer``` function verifies that a selection has been made by checking if the user has changed the default selected value. 
 
-If any validation doesn't return True then the application will display an error message prompting the user to submit in answer correctly. This ensures that all data is collected appropriately.
+If any validation doesn't return True then the application will display an error message prompting the user to submit an answer correctly. This ensures that all data is collected appropriately.
 
 #### question.py
-The questions.py module was created to separate quiz content from the main application module. The quiz questions were stored using Python lists and dictionaries. Each section of the quiz was stored in a list, such as ```section_one``` and ```section_two```. Within each list, individual questions were stored as dictionaries with key-value pairs. Each question dictionary contains ```question``` representing the text displayed to the user, ```type``` which determines whether the questions were multiple choice or manually typed, and ```options``` stores multiple choice answers if applicable. An example of this is shown below with section one.
+The questions.py module was created to separate quiz content from the main application module. The quiz questions are stored using Python lists and dictionaries. Each section of the quiz are stored in a list, including ```section_one``` and ```section_two```. Within each list, individual questions are stored as dictionaries with key-value pairs. Each question dictionary contains ```question``` representing the text displayed to the user, ```type``` which determines whether the questions were multiple choice or manually typed, and ```options``` stores multiple choice answers if applicable. An example of this is shown below with section one.
 ```section_one = [
     {
       "type": "manual_answer",
@@ -139,7 +139,7 @@ The questions.py module was created to separate quiz content from the main appli
     }
 ]
 ```
-The reason for storing quiz questions separate from the main module is to ensure that questions were loaded dynamically into the GUI using ```question_index``` attribute. The ```type``` key pair is also essential, as it controls the type of Tkinter widget displayed for each question. For example, manually typed questions generated an Entry widget, whereas multiple choice questions would  load an Option Menu.
+The reason for storing quiz questions separate from the main module is to ensure that questions were loaded dynamically into the GUI using ```question_index``` attribute. The ```type``` key pair is also essential, as it controls the type of Tkinter widget displayed for each question. For example, manually typed questions generated an Entry widget, whereas multiple choice questions would load an Option Menu.
 
 Storing questions separate also allows flexibility within the application's design. Questions can be updated easily without making any major changes to the application logic. If this were hardcoded into the main module, updates would take longer, as the corresponding  Tkinter widgets would also need to be adjusted. 
 
@@ -335,7 +335,7 @@ As shown in the code above, several areas were tested including:
 All tests passed successfully, demonstrating that the validation functions behaved as expected for both valid and invalid inputs. A screenshot of these unit tests passing in the terminal is shown below
 <img width="911" height="127" alt="image" src="https://github.com/user-attachments/assets/715cdbd6-89b6-42c4-bb8a-b4d7683ff951" />
 #####  Continuous Integration 
-Continuous Integration (CI) was also implemented as part of the testing process for this Quiz application using Github Actions to automate execution of unit tests when changes were pushed to the repository. This approach can help identify any errors during early development, ensuring that validation works correctly even after pushing new code. The screenshot below shows CI passing for this GitHub repository, ensuring that validation is consistently working as intended.
+Continuous Integration (CI) was also implemented as part of the testing process for this Quiz application using GitHub Actions to automate execution of unit tests when changes were pushed to the repository. This approach can help identify any errors during early development, ensuring that validation works correctly even after pushing new code. The screenshot below shows CI passing for this GitHub repository, ensuring that validation is consistently working as intended.
 <img width="1358" height="342" alt="image" src="https://github.com/user-attachments/assets/e87c7569-d84c-4581-99df-a794e8ceb8c6" />
 
 ## User Documentation
