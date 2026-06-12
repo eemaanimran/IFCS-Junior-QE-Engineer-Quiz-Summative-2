@@ -52,14 +52,12 @@ The application was designed using a modular, object‑oriented approach to impr
 <img width="319" height="20" alt="image" src="https://github.com/user-attachments/assets/45b60d2b-24af-417a-a8e1-f1f8ae5a30a4" />
 <img width="233" height="54" alt="image" src="https://github.com/user-attachments/assets/68ae824a-718e-4a4c-8b40-e951ef915c2a" />
 #### main.py
-<img width="961" height="596" alt="image" src="https://github.com/user-attachments/assets/4ba7afff-b056-435f-9b6b-cf19b1fde2df" />
 
 The ```main.py``` module contains the primary application logic and GUI functionality using Tkinter. It's main class ```QEQuizApp``` contains the overall quiz navigation, including user interaction, switching questions, and transiting to different sections. This class also contains the creation of Tkinter widgets, including labels, buttons, frames, and drop down menus.
 
 Object-oriented programming principles were also applied in this class including attributes like quiz frames (e.g, ```self.home_frame```) and Tkinter widgets (e.g., ```self.title```). This class also contains various methods, which will be discussed in more detail below. 
 
 #### validation.py
-<img width="1041" height="584" alt="image" src="https://github.com/user-attachments/assets/a6ac8c49-e5d6-45aa-816d-810c35e9f4ac" />
 
 The validation.py module contains a set of validation functions for checking user input throughout the quiz. These functions ensure that all required fields are correctly completed before allowing the user to proceed to the next question or frame. Separating this logic from the main module not only improves modularity but also allows the functions to be tested independently through automated unit tests. The module contains three key validation functions. 
 
