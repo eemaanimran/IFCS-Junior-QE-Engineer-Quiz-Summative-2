@@ -356,3 +356,60 @@ Once you've gone through both sections, a completion screen will be displayed co
 After a candidate has completed the quiz, recruiters or assessors can access this CSV file to review answers and reach a solid conclusion about a potential candidate or early professional about their current knowledge of Automation Testing. An example of this CSV file is shown below, opened in Microsoft Excel.
 <img width="845" height="193" alt="image" src="https://github.com/user-attachments/assets/bb45a78c-1843-4f31-8309-fb8366aea147" />
 
+## Technical Documentation
+
+### Libraries and programming language used
+This quiz was developed using Python 3.13 and uses the following libraries:
+* Tkinter
+* csv
+* unittest
+### Cloning the repository
+To create a local version of this project, copy the repository URl and clone it in a terminal using ```git clone``` in a terminal. An example is shown below using the web URL
+```bash
+git clone https://github.com/eemaanimran/IFCS-Junior-QE-Engineer-Quiz-Summative-2.git
+```
+In the terminal you can now change directory using the repository name to move inside the folder using the ```cd``` command. 
+```bash
+cd IFCS-Junior-QE-Engineer-Quiz-Summative-2
+```
+You can now open this folder in a suitable code editor, like Visual Studio code to view and modify any code or modules if necessary. This can be done with the command below if you wish to open it in Visual Studio code.
+```bash
+code .
+```
+### Quiz Structure
+This quiz project has been organised into multiple python modules to separate different functionality of the quiz.
+```main.py``` - Contains the main GUI and quiz functionality
+```validation.py``` - Contains validation functions used throughout the application
+```questions.py``` - Stores quiz questions and the type of question, alongside answer options for multiple choice and the correct answer.
+```test_validation.py``` - Contains automated unit tests for validation functions. 
+```quiz_results.csv``` - Stores user responses to the quiz. 
+
+### Running the application
+To run the Tkinter application, run the code from ```main.py``` which should launch the Tkinter GUI and display the home screen.
+```bash
+python main.py
+```
+To run the automated unit tests, run the ```test_validation.py``` module.
+```bash
+python test_validation.py
+```
+
+## Evaluation
+Overall, the development of this Quality Engineering Quiz was successful, all the main requirements outlined during the design phase were implemented. The application provides a fully functional GUI, CSV data storage, input validation, automated and manual testing, and the use of CI through GitHub Actions for any new code pushed to the repository. 
+
+### What went well
+
+One area which was the most successful was the modular design of the application. Separating functionality into individual modules dramatically helped to improve code by separating different functionality areas of the Quiz for better organisation. This is useful because any future improvements or error handling can be added more easily, making it simpler to navigate the code and locate the relevant areas. 
+
+Another successful feature that I particularly enjoyed creating was the implementation of dynamically loaded questions. By storing questions in lists and dictionaries in a separate module will allow new questions to be modified and added without changing any GUI code logic, especially for individuals with limited programming experience.
+
+This feature also fits the main purpose of this quiz quite well. Recruiters can tailor questions based on the individual taking the assessment. For example, candidates applying for Junior roles such as internships or apprenticeships may be presented with more foundational questions. However, someone with more industry experience could be given more advanced questions to showcase their knowledge and skillset, which makes results easier to analyse.
+
+### Improvements
+
+Although the quiz is fully functional, there are a few areas that could be improved. For example, the visual design of the user interface could be improved, whilst the app does have sufficient functionality that makes it simple to use, a more visually appealing interface could improve user engagement. 
+
+The validation functions could also be expanded. This is because the multiple choice validation only checks whether the user has selected an option other than the default value in the drop down. However, a future implementation could have better validation rules tailored to specific multiple choice options, to ensure a valid option has been selected. Though this may reduce its dynamic advantage, it may be valuable consideration for future development.
+
+Another potential improvement could be having a scoring system. The current application records answers for review but doesn’t automatically calculate the user’s performance. Having a scoring system, specifically for checking correct multiple choice answers could make the assessment process more efficient. 
+
