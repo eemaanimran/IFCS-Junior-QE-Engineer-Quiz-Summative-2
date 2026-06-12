@@ -255,6 +255,7 @@ class QEQuizApp:
       self.submit_button = tk.Button(
         self.quiz_frame,
         text="Next Question",
+        font=("Arial", 20),
         command=self.next_question
       )
       self.submit_button.pack()
